@@ -41,7 +41,7 @@ def xml_add(args):
             node_file_text += node_text
             node_file_text += line
     f.close()
-    # write the content to our file 
+    # write the content to our file
     f = open(args.path, "w")
     f.write(node_file_text)
 

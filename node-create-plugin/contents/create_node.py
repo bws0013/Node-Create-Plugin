@@ -30,11 +30,12 @@ def create_node_file_from_args(args):
     f = open(file_name_to_check, "w+")
     f.write(node_text)
     f.close()
-    # ensure the file exists and error out if it was not 
+    # ensure the file exists and error out if it was not
     if check_if_file_exits(file_name_to_check):
         return True
     else:
         exit_with_status(4, "File could not be created, change user into rundeck and see if you can make it.")
+
 
 # checks if a file exists
 def check_if_file_exits(path):

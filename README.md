@@ -4,7 +4,9 @@ This is a plugin to be run on an existing instance or localhost Rundeck machine 
 
 ## Install
 
-You have a choice for which zip file to use, you can use the one I have provided called `node-create-plugin.zip` with md5 `30e3014d0e90f78be81fdd95e7fdafd9` or you can make your own version of the zip file by running the command `zip -r node-create-plugin.zip contents/ plugin.yaml` (assuming you have access to zip). The plugin should be put in your Rundeck instance's plugins directory which is by default located at `/var/lib/rundeck/libext/`.
+You have a choice for which zip file to use, you can use the one I have provided called `node-create-plugin.zip`* or you can make your own version of the zip file by running the command `zip -r node-create-plugin.zip zip -r node-create-plugin.zip node-create-plugin/contents/ node-create-plugin/plugin.yaml` (assuming you have access to zip). The plugin should be put in your Rundeck instance's plugins directory which is by default located at `/var/lib/rundeck/libext/`.
+
+\*I am only not including an md5sum because it changes every time I re-zip the file. Don't trust me, zip your own.
 
 ## Requirements
 

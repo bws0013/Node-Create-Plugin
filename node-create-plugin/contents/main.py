@@ -53,3 +53,5 @@ elif file_type == "f":
     extension = get_file_extension(args.path)
     if extension == "xml":
         add_node.xml_add(args)
+
+print "Node added! Check to be sure."
