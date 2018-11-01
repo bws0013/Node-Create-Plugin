@@ -1,0 +1,53 @@
+name: node-create-plugin
+version: 1.0.1
+rundeckPluginVersion: 1.1
+author: Ben Smith
+date: Tue Oct 23 2018
+url: https://github.com/bws0013
+providers:
+  - name: create-node
+    title: Create Node
+    description: Create a node, spaces are only allowed in the description
+    service: WorkflowNodeStep
+    plugin-type: script
+    script-interpreter: python -u
+    script-file: hello.py
+    script-args: -n ${config.node_name} -o ${config.hostname} -u ${config.username} -d ${config.description} -t ${config.tags} -p ${config.path} -v ${config.overwrite}
+    config:
+      - name: node_name
+        title: node_name
+        description: "The plugin will add .yml at the end"
+        type: String
+        required: true
+      - name: hostname
+        title: hostname
+        description: "This will be used to login, enter the ip if there is no hostname"
+        type: String
+        required: true
+      - name: path
+        title: path
+        description: "The path of your resource folder/file"
+        type: String
+        default: "/var/rundeck/projects/${job.project}/etc/resources"
+        required: true
+      - name: username
+        title: username
+        description: "(optional) Provide a user to login as (default is root)"
+        type: String
+        default: "root"
+      - name: description
+        title: description
+        description: "(optional) Enter or don't for a default description"
+        type: String
+        default: "A node"
+      - name: tags
+        title: tags
+        description: "(optional) Split the tags with commas (no spaces allowed)"
+        type: String
+        default: "Node,Test,hello"
+      - name: overwrite
+        title: overwrite
+        description: "(optional) Overwrite node with same name"
+        type: Select
+        values: "true, false"
+        default: "false"
