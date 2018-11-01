@@ -1,10 +1,10 @@
 ## Rundeck Node-Create Plugin
 
-This a plugin to be run on an existing instance or localhost Rundeck machine to create nodes in Rundeck to be accessed later.
+This is a plugin to be run on an existing instance or localhost Rundeck machine to create nodes in Rundeck to be accessed later.
 
 ## Install
 
-While I am developing this plugin my zip file will not be available but once it is complete it will be uploaded and available to download. The plugin should be put in your Rundeck instance's plugins directory which is by default located at `/var/lib/rundeck/libext/`.
+You have a choice for which zip file to use, you can use the one I have provided called `node-create-plugin.zip` with md5 `30e3014d0e90f78be81fdd95e7fdafd9` or you can make your own version of the zip file by running the command `zip -r node-create-plugin.zip contents/ plugin.yaml` (assuming you have access to zip). The plugin should be put in your Rundeck instance's plugins directory which is by default located at `/var/lib/rundeck/libext/`.
 
 ## Requirements
 

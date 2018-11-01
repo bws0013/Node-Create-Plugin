@@ -11,7 +11,7 @@ providers:
     service: WorkflowNodeStep
     plugin-type: script
     script-interpreter: python -u
-    script-file: hello.py
+    script-file: main.py
     script-args: -n ${config.node_name} -o ${config.hostname} -u ${config.username} -d ${config.description} -t ${config.tags} -p ${config.path} -v ${config.overwrite}
     config:
       - name: node_name
