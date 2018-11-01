@@ -4,7 +4,7 @@ This is a plugin to be run on an existing instance or localhost Rundeck machine 
 
 ## Install
 
-You have a choice for which zip file to use, you can use the one I have provided called `node-create-plugin.zip`* or you can make your own version of the zip file by running the command `zip -r node-create-plugin.zip zip -r node-create-plugin.zip node-create-plugin/contents/ node-create-plugin/plugin.yaml` (assuming you have access to zip). The plugin should be put in your Rundeck instance's plugins directory which is by default located at `/var/lib/rundeck/libext/`.
+You have a choice for which zip file to use, you can use the one I have provided called `node-create-plugin.zip`* or you can make your own version of the zip file by running the command `zip -r node-create-plugin.zip zip -r node-create-plugin.zip node-create-plugin/contents/ node-create-plugin/plugin.yaml` (assuming you have access to zip). The plugin should be put in your Rundeck instance's plugins directory which is by default located at `/var/lib/rundeck/libext/`. If you want an example of the plugin in action go to the bottom of the readme to the Example Job section.
 
 \*I am only not including an md5sum because it changes every time I re-zip the file. Don't trust me, zip your own.
 
@@ -33,8 +33,14 @@ The attributes include
 
 \***Note on File Path**: I have encountered two common configurations when it comes to Rundeck Node setups. The most common is to have a single `resources.xml` file containing information on all nodes. The other is to have a folder called resources which contains a series of `<node name>.yml` files. My program checks to see if the File Path is to a file or a directory and acts accordingly. There is a less common configuration where you have both a `resources.xml` file as well as a resources folder. If you are using this just enter either the file or folder and the program will act accordingly. If you choose to name your `resources.xml` file something else that is fine just add its name instead of the default.
 
-
-
 ## Testing details
 
 As stated previously, all development and testing for this plugin occurred in Rundeck version 3.0.7-20181008 (jalapeño popper deepskyblue flag). The machine used was for testing was the 'centos/7' vagrant box. Initial node.yml files were placed in the directory `/var/rundeck/projects/<project name>/etc/resources/`.
+
+## Example Job
+
+If you would like to see this job in action you are in luck. I have included the a file called hello.xml which is a job that uses this plugin to create a node.
+- Move the plugin to the plugins folder (default: `/var/lib/rundeck/libext/`)
+- Ensure it is there by going to the plugins list and looking under the Workflow Node Steps tab
+- Under a Rundeck project select Upload Definition from Job Actions
+- Navigate to and select the hello.xml file and select remove UUID as it will not be important here

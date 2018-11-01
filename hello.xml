@@ -1,0 +1,73 @@
+<joblist>
+  <job>
+    <context>
+      <options preserveOrder='true'>
+        <option name='description' required='true' value='A node'>
+          <description><![CDATA[- This is the description of the node
+- It is not neccessary but it something should be included
+- This is the 1 case where spaces are acceptable]]></description>
+        </option>
+        <option name='hostname' required='true' value='192.10.11.12'>
+          <description><![CDATA[- This will be what rundeck uses to login to your node
+- Rundeck runs the equivelant of ssh `ssh <user>@<hostname>`
+- It can either be an ip or a fqdn of the node ]]></description>
+        </option>
+        <option name='node_name' required='true' value='my_first_node'>
+          <description><![CDATA[- This is going to be how your node appears in rundeck
+- It must be unique unless you set overwrite to true
+- **No spaces allowed in any field**]]></description>
+        </option>
+        <option enforcedvalues='true' name='overwrite' required='true' value='false' values='false,true'>
+          <description><![CDATA[- This is a true/false option for if you want to overwrite an exisitng node
+- It will only be overwritten if a node of the same name exists
+- If the node exists and overwrite is false you will get an error ]]></description>
+        </option>
+        <option name='path' required='true' value='/var/rundeck/projects/&lt;at least replace this&gt;/etc/resources'>
+          <description><![CDATA[- This is the path to your resources file/folder. 
+- Currently my plugin allows for a directory of nodes or a yml file containing nodes
+- Add the link to this location, either the directory or a file
+- The default resources link example is for a directory
+]]></description>
+        </option>
+        <option name='tags' required='true' value='Node,Test,hello'>
+          <description><![CDATA[- These are the tags required for your node
+- The tags should be split by commas not spaces
+- I am not going to use a multi-value option here although you could]]></description>
+        </option>
+        <option name='username' required='true' value='root'>
+          <description><![CDATA[- This is the username rundeck will use to login to your node
+- Much like the hostname remember that rundeck uses `ssh -i <rundeck key path> <user>@<hostname>`
+- If you have connection issues try ssh-ing in yourself
+- The default key path is /var/lib/rundeck/ssh/id_rsa]]></description>
+        </option>
+      </options>
+    </context>
+    <defaultTab>output</defaultTab>
+    <description><![CDATA[A node-create-plugin example job
+- This is an instructional guide and example of how my rundeck plugin could be implemented. 
+- For further assistance raise an issue here: `https://github.com/bws0013/Node-Create-Plugin/issues`
+- You should read all of the bullet points for each option below ]]></description>
+    <executionEnabled>true</executionEnabled>
+    <id>83dd4430-2e39-4f10-8381-ca8b0528a5e1</id>
+    <loglevel>INFO</loglevel>
+    <name>hello</name>
+    <nodeFilterEditable>false</nodeFilterEditable>
+    <scheduleEnabled>true</scheduleEnabled>
+    <sequence keepgoing='false' strategy='node-first'>
+      <command>
+        <node-step-plugin type='create-node'>
+          <configuration>
+            <entry key='description' value='${option.description}' />
+            <entry key='hostname' value='${option.hostname}' />
+            <entry key='node_name' value='${option.node_name}' />
+            <entry key='overwrite' value='${option.overwrite}' />
+            <entry key='path' value='${option.path}' />
+            <entry key='tags' value='${option.tags}' />
+            <entry key='username' value='${option.username}' />
+          </configuration>
+        </node-step-plugin>
+      </command>
+    </sequence>
+    <uuid>83dd4430-2e39-4f10-8381-ca8b0528a5e1</uuid>
+  </job>
+</joblist>
