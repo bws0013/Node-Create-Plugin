@@ -44,3 +44,4 @@ If you would like to see this job in action you are in luck. I have included the
 - Ensure it is there by going to the plugins list and looking under the Workflow Node Steps tab
 - Under a Rundeck project select Upload Definition from Job Actions
 - Navigate to and select the hello.xml file and select remove UUID as it will not be important here
+- Run the job and fill in the fields as explained in the bullet points
